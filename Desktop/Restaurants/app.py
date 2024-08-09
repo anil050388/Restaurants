@@ -35,27 +35,6 @@ class User(UserMixin, db.Model):
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
     
-# login_manager = LoginManager()
-# login_manager.init_app(app)
-
-# # User class to store user data
-# class User(UserMixin):
-#     def __init__(self, id, username, password):
-#         self.id = id
-#         self.username = username
-#         self.password = generate_password_hash(password, method='pbkdf2:sha256')  # Hash the password
-
-#     def verify_password(self, password):
-#         return check_password_hash(self.password, password)
-
-# Example users (you might replace this with a database later)
-
-
-# users = {
-#     User('user1', 'password1'),
-#     User('user2', 'password2'),
-# }
-
 # Initialize S3 client
 s3_client = boto3.client('s3')
 bucket_name = 'aks3rest'  # Replace with your S3 bucket name
