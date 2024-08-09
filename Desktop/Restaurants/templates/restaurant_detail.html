@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant - Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/restaurant_detail.css') }}" />
+</head>
+<body>
+    <div class="container mt-5">
+        <div id="restaurant-detail" data-hsisid="{{ restaurant['HSISID'] }}">
+            <a href="#" id="back-to-search" class="btn-back">Back to Search</a>
+            <h1>{{ restaurant['name'] }}</h1>
+            <p><strong>Address:</strong> {{ restaurant['display_address'] }}, {{ restaurant['city'] }}, {{ restaurant['state'] }}</p>
+            <p><strong>Phone:</strong> {{ restaurant.display_phone }}</p>
+            <div style="display: flex; align-items: center;">
+                <p><strong>Score:</strong></p>
+                <div class="score-box">{{ restaurant['SCORE'] }}</div>
+            </div>
+        </div>
+
+        <h2 class="mt-5" style="background-color: rgba(0,0,0,0.1); padding: 10px; border-radius: 5px;">Inspection History</h2>
+        <div class="chart-container">
+            <canvas id="inspectionChart"></canvas>
+        </div>
+        
+        <h3 style="background-color: rgba(0,0,0,0.1); padding: 10px; border-radius: 5px;">Present & Past Violations</h3>
+        <select id="inspection-dropdown" class="form-control mb-3" data-inspection-dates='{{ inspection_dates|tojson|safe }}' data-inspection-scores='{{ inspection_scores|tojson|safe }}'>
+            <option value="" disabled selected>Select Inspection Date</option>
+            {% for date in inspection_dates %}
+                <option value="{{ date }}">{{ date }}</option>
+            {% endfor %}
+        </select>
+
+        <div id="inspection-details" class="inspection-details" style="display: none;">
+            <h4>Number of Violations: <span id="violation-count">0</span></h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Critical</th>
+                        <th>Category</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody id="violation-table-body">
+                    <!-- Dynamically filled via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/restaurant_detail.js') }}"></script>
+</body>
+</html>

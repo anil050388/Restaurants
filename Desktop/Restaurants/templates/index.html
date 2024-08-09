@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+</head>
+
+<body>
+    <div class="container mt-5" id="content">
+        <h1 class="text-center mb-4"><i class="fas fa-search"></i> Search</h1>
+        <form id="search-form" style="margin-bottom: 30px;">
+            <div class="form-group">
+                <label for="search_query"><i class="fas fa-city"></i> Enter city name</label>
+                <input type="text" class="form-control" id="search_query" name="search_query" />
+            </div>
+            <div class="form-group">
+                <label for="search_name"><i class="fas fa-utensils"></i> Enter restaurant name</label>
+                <input type="text" class="form-control" id="search_name" name="search_name" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+                <i class="fas fa-search"></i> Search
+            </button>
+        </form>
+
+        <div id="map" class="mt-4"></div>
+
+        <div id="category-container" class="mt-4">
+            <div class="form-group category-filter">
+                <label for="category"><i class="fas fa-filter"></i> Select Category</label>
+                <select class="form-control" id="category" name="category">
+                    <option value="">All Categories</option>
+                    <!-- Categories will be dynamically populated here -->
+                </select>
+            </div>
+        </div>
+
+        <div id="results" class="list-group mt-4"></div>
+        <ul id="pagination" class="pagination justify-content-center mt-4"></ul>
+    </div>
+
+    <script>
+        window.mapboxToken = "{{ mapbox_access_token }}";
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <!-- Link to the external JavaScript file -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

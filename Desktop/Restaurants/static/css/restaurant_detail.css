@@ -1,0 +1,109 @@
+body {
+    background: url('https://plus.unsplash.com/premium_photo-1661627606440-a901eb9588c5?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+#restaurant-detail {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(240, 240, 240, 0.95));
+    margin-bottom: 20px;
+    position: relative;
+}
+.score-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(145deg, #4CAF50, #388E3C);
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.score-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+.btn-back {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(145deg, #FF4081, #F50057);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    z-index: 10; /* Ensure button is above other elements */
+}
+.btn-back:hover {
+    background: linear-gradient(145deg, #F50057, #FF4081);
+}
+.chart-container {
+    width: 100%;
+    height: 400px; /* Fixed height */
+    margin: 20px 0;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(240, 240, 240, 0.95));
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+.inspection-details {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(240, 240, 240, 0.95));
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+table {
+    margin-top: 20px;
+    width: 100%;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #restaurant-detail {
+        padding: 15px;
+    }
+    .btn-back {
+        top: 10px;
+        right: 10px;
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    .score-box {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-back {
+        top: 5px;
+        right: 5px;
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    .score-box {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+}
