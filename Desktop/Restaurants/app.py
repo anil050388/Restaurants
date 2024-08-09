@@ -68,8 +68,10 @@ merged_df.sort_values(['HSISID', 'date'], ascending=[True, False], inplace=True)
 # Drop duplicates, keeping the first (latest) entry for each 'HSISID'
 data = merged_df.drop_duplicates(subset='HSISID', keep='first')
 
-# Create a safe_name column for URL usage
-data.loc[:, 'safe_name'] = data['name'].str.lower().str.replace(' ', '-').str.replace('/', '-').str.replace('&', 'and')
+data = data.copy()
+data['safe_name'] = data['name'].str.lower().str.replace(' ', '-').str.replace('/', '-').str.replace('&', 'and')
+
+
 
 
 # Extract all unique categories
@@ -267,6 +269,3 @@ def get_inspection_details():
         'violation_count': len(inspection_details),
         'violation_details': inspection_details
     })
-
-if __name__ == '__main__':
-    app.run(debug=True)
