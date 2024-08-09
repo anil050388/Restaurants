@@ -1,0 +1,89 @@
+body {
+    background: url('https://plus.unsplash.com/premium_photo-1661627606440-a901eb9588c5?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(240, 240, 240, 0.95));
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+#map {
+    height: 400px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    #map {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    #map {
+        height: 250px;
+    }
+}
+
+.login-container,
+.signup-container {
+    max-width: 400px;
+    margin: 100px auto;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(240, 240, 240, 0.95));
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2,
+.signup-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.form-group input {
+    border-radius: 20px;
+    padding-left: 10px;
+}
+
+.alert-danger {
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 576px) {
+    #content {
+        margin-top: 20px;
+    }
+    .login-container,
+    .signup-container {
+        margin: 50px auto;
+        padding: 15px;
+    }
+    .form-group label {
+        font-size: 14px;
+    }
+    .form-group input {
+        font-size: 14px;
+        padding-left: 8px;
+    }
+    .btn-primary {
+        font-size: 14px;
+    }
+}

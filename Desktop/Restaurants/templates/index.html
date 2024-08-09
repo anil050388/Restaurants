@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" />
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
 </head>
 
 <body>
     <div class="container mt-5" id="content">
-        <h1 class="text-center mb-4"><i class="fas fa-search"></i> Search</h1>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1><i class="fas fa-search"></i> Search</h1>
+            <div class="auth-links">
+                {% if username %}
+                    <p class="mb-0 welcome-text">Welcome, {{ username }}!</p>
+                    <a href="{{ url_for('logout') }}" class="btn btn-outline-danger">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="btn btn-outline-primary">Login</a>
+                    <a href="{{ url_for('signup') }}" class="btn btn-outline-primary">Signup</a>
+                {% endif %}
+            </div>
+        </div>
+
         <form id="search-form" style="margin-bottom: 30px;">
             <div class="form-group">
                 <label for="search_query"><i class="fas fa-city"></i> Enter city name</label>
